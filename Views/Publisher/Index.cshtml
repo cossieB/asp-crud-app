@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Publisher>
+@{
+	ViewData["Title"] = "Publishers";
+}
+<div class="row mt-5">
+	<h1 class="col-6">Publishers</h1>
+	<div class="col-6 text-end">
+		<a class="btn-primary btn" asp-action="Create">Create New Publisher</a>
+	</div>
+</div>
+
+<table class="table border table-light table-striped">
+	<thead>
+		<tr>
+			<th width="30%"></th>
+			<th class="text-center" >Publisher</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td><img class="img-fluid" src="@item.Logo"/> </td>
+				<td class="fs-3 text text-center align-middle">@item.Name</td>
+			</tr>
+		}
+	</tbody>
+</table>
