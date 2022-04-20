@@ -1,6 +1,7 @@
 ﻿using IGDB.Data;
 using IGDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 
 namespace IGDB.Controllers
 {
@@ -24,6 +25,11 @@ namespace IGDB.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Publisher publisher)
         {
+            var rgx = new Regex(@"^https?:\/\/.+\.(png|jpg|jpeg|svg|webp)$", RegexOptions.IgnoreCase);
+            if (!rgx.IsMatch(publisher.Logo))
+            {
+                ModelState.AddModelError("Logo", "Please enter a valid image file.");
+            }
             if (ModelState.IsValid)
             {
                 this._db.Publishers.Add(publisher);
@@ -42,6 +48,11 @@ namespace IGDB.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Publisher publisher)
         {
+            var rgx = new Regex(@"^https?:\/\/.+\.(png|jpg|jpeg|svg|webp)$", RegexOptions.IgnoreCase);
+            if (!rgx.IsMatch(publisher.Logo))
+            {
+                ModelState.AddModelError("Logo", "Please enter a valid image file.");
+            }
             if (ModelState.IsValid)
             {
                 this._db.Publishers.Update(publisher);
