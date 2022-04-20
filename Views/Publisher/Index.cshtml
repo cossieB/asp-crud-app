@@ -5,24 +5,22 @@
 <div class="row mt-5">
 	<h1 class="col-6">Publishers</h1>
 	<div class="col-6 text-end">
-		<a class="btn-primary btn" asp-action="Create">Create New Publisher</a>
+		<a class="btn-primary btn" asp-action="Create"><i class="bi bi-file-plus"></i> Create New Publisher</a>
 	</div>
 </div>
 
-<table class="table border table-light table-striped">
-	<thead>
-		<tr>
-			<th width="30%"></th>
-			<th class="text-center" >Publisher</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model)
-		{
-			<tr>
-				<td><img class="img-fluid" src="@item.Logo"/> </td>
-				<td class="fs-3 text text-center align-middle">@item.Name</td>
-			</tr>
-		}
-	</tbody>
-</table>
+@foreach (var item in Model) {
+	<div class="bg-light p-3">
+	<div class="row justify-content-center" style="height:50px">
+		<div class="col-8 h-100">
+			<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
+		</div>
+		<div class="col-4 btn-group">
+			<a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-info w-25">Details</a>
+			<a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-warning w-25" >Edit</a>
+			<a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger w-25" >Delete</a>
+
+		</div>
+	</div>
+	</div>
+}
