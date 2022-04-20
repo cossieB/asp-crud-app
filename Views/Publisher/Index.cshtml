@@ -16,9 +16,9 @@
 			<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
 		</div>
 		<div class="col-4 btn-group">
-			<a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-info w-25">Details</a>
-			<a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-warning w-25" >Edit</a>
-			<a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger w-25" >Delete</a>
+			<a asp-action="Details" asp-route-Id="@item.Id" class="btn btn-info w-25 d-flex align-items-center justify-content-center"><i class="bi bi-info-square"></i>&nbsp;Details</a>
+			<a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-warning w-25 d-flex align-items-center justify-content-center" ><i class="bi bi-pencil-square"></i>&nbsp;Edit</a>
+			<a asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-danger w-25 d-flex align-items-center justify-content-center" ><i class="bi bi-trash3"></i>&nbsp;Delete</a>
 
 		</div>
 	</div>
