@@ -50,5 +50,19 @@ namespace IGDB.Controllers
             }
             return View(publisher);
         }
+        public IActionResult Delete(int id)
+        {
+            var publisher = this._db.Publishers.Find(id);
+            if (publisher == null) return NotFound();
+            return View(publisher);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Delete(Publisher publisher)
+        {
+                this._db.Publishers.Remove(publisher);
+                this._db.SaveChanges();
+                return RedirectToAction("Index");
+        }
     }
 }
