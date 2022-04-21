@@ -4,6 +4,7 @@ using IGDB.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IGDB.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220421141953_CreateGamesTable")]
+    partial class CreateGamesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,7 +51,7 @@ namespace IGDB.Migrations
 
                     b.HasKey("DeveloperId");
 
-                    b.ToTable("Developers", (string)null);
+                    b.ToTable("Developers");
                 });
 
             modelBuilder.Entity("IGDB.Models.Game", b =>
@@ -82,7 +84,7 @@ namespace IGDB.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("IGDB.Models.Publisher", b =>
@@ -112,7 +114,7 @@ namespace IGDB.Migrations
 
                     b.HasKey("PublisherId");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("IGDB.Models.Game", b =>
