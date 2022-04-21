@@ -5,17 +5,17 @@ using System.Text.RegularExpressions;
 
 namespace IGDB.Controllers
 {
-    public class PublisherController : Controller
+    public class DeveloperController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public PublisherController(ApplicationDbContext db)
+        public DeveloperController(ApplicationDbContext db)
         {
             this._db = db;
         }
         public IActionResult Index()
         {
-            IEnumerable<Publisher> publishers = this._db.Publishers;
-            return View(publishers);
+            IEnumerable<Developer> developers = this._db.Developers;
+            return View(developers);
         }
         public IActionResult Create()
         {
@@ -23,61 +23,61 @@ namespace IGDB.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Publisher publisher)
+        public IActionResult Create(Developer obj)
         {
             var rgx = new Regex(@"^https?:\/\/.+\.(png|jpg|jpeg|svg|webp)$", RegexOptions.IgnoreCase);
-            if (!rgx.IsMatch(publisher.Logo))
+            if (!rgx.IsMatch(obj.Logo))
             {
                 ModelState.AddModelError("Logo", "Please enter a valid image file.");
             }
             if (ModelState.IsValid)
             {
-                this._db.Publishers.Add(publisher);
+                this._db.Developers.Add(obj);
                 this._db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(publisher);
+            return View(obj);
         }
         public IActionResult Edit(int id)
         {
-            var publisher = this._db.Publishers.Find(id);
-            if (publisher == null) return NotFound();
-            return View(publisher);
+            var obj = this._db.Developers.Find(id);
+            if (obj == null) return NotFound();
+            return View(obj);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Publisher publisher)
+        public IActionResult Edit(Developer obj)
         {
             var rgx = new Regex(@"^https?:\/\/.+\.(png|jpg|jpeg|svg|webp)$", RegexOptions.IgnoreCase);
-            if (!rgx.IsMatch(publisher.Logo))
+            if (!rgx.IsMatch(obj.Logo))
             {
                 ModelState.AddModelError("Logo", "Please enter a valid image file.");
             }
             if (ModelState.IsValid)
             {
-                this._db.Publishers.Update(publisher);
+                this._db.Developers.Update(obj);
                 this._db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(publisher);
+            return View(obj);
         }
         public IActionResult Delete(int id)
         {
-            var publisher = this._db.Publishers.Find(id);
-            if (publisher == null) return NotFound();
-            return View(publisher);
+            var obj = this._db.Developers.Find(id);
+            if (obj == null) return NotFound();
+            return View(obj);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Delete(Publisher publisher)
+        public IActionResult Delete(Developer obj)
         {
-                this._db.Publishers.Remove(publisher);
+                this._db.Developers.Remove(obj);
                 this._db.SaveChanges();
                 return RedirectToAction("Index");
         }
         public IActionResult Details(int id)
         {
-            var obj = this._db.Publishers.Find(id);
+            var obj = this._db.Developers.Find(id);
             if (obj == null) return NotFound();
             return View(obj);
         }
