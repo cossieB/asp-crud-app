@@ -1,0 +1,28 @@
+﻿@model Publisher
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container mt-3">
+<img class="img-fluid" src="@Model.Logo"/>
+<h1 class="mt-3">@Model.Name</h1>
+<p>@Model.Summary</p>
+<table class="table table-bordered text-light">
+    <thead>
+        <tr class="text-info">
+            <th>Key</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Headquarters</td>
+            <td>@Model.Headquarters</td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>@Model.Country</td>
+        </tr>
+
+    </tbody>
+</table>
+</div>
