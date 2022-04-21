@@ -1,24 +1,29 @@
 ﻿@model Publisher
 @{
-    ViewData["Title"] = "Delete "+@Model.Name;
+	ViewData["Title"] = "Delete " + @Model.Name;
 }
 
 <div class="container mt-5">
-<h1>Delete Publisher</h1>
-<form method="post">
-    <div class="border border-light border-5 p-5">
-    <div class="mb-3">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" disabled />
-        <span asp-validation-for="Name" class="text-danger"></span>
-    </div>
-    <div class="mb-3" >
-        <label asp-for="Logo"></label>
-        <input asp-for="Logo" class="form-control" disabled />
-        <span asp-validation-for="Logo" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
+	<h1>Delete Publisher</h1>
+	<form method="post">
+		<div class="border border-light border-5 p-5">
+			<div class="mb-3">
+				<label asp-for="Name"></label>
+				<input asp-for="Name" class="form-control" disabled />
+				<span asp-validation-for="Name" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Logo"></label>
+				<input asp-for="Logo" class="form-control" disabled />
+				<span asp-validation-for="Logo" class="text-danger"></span>
+			</div>
+			<div class="mb-3" hidden>
+				<label asp-for="PublisherId"></label>
+				<input asp-for="PublisherId" class="form-control" />
+				<span asp-validation-for="Logo" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-danger">Delete</button>
+		</div>
 
-</form>
+	</form>
 </div>

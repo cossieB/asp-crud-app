@@ -7,6 +7,7 @@ namespace IGDB.Data
     {
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Developer> Developers { get; set; }
+        public DbSet<Game> Games { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
