@@ -1,0 +1,36 @@
+﻿@model Game
+@{
+	ViewData["Title"] = @Model.Title + " Details";
+}
+<div class="container mt-5">
+	<img class="img-fluid" src="@Model.CoverImg" style="max-height:400px" />
+	<h1 class="mt-3">@Model.Title</h1>
+	<p>@Model.Description</p>
+	<table class="table table-bordered text-light">
+		<thead>
+			<tr class="text-info">
+				<th>Key</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Developer</td>
+				<td>
+					<a asp-controller="Developer" asp-action="Details" asp-route-Id="@Model.DeveloperId">
+						@Model.Developer!.Name
+					</a>
+				</td>
+			</tr>
+			<tr>
+				<td>Publisher</td>
+				<td>
+					<a asp-controller="Publisher" asp-action="Details" asp-route-Id="@Model.PublisherId">
+						@Model.Publisher!.Name
+					</a>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+</div>

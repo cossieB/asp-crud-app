@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace IGDB.Models
 {
@@ -10,11 +11,13 @@ namespace IGDB.Models
         public string Title { get; set; }
         public string? Description { get; set; }
         public DateTime ReleaseDate { get; set; }
-        [Required]
-        public Developer Developer { get; set; }
+        public Developer? Developer { get; set; }
         public int DeveloperId { get; set; }
-        public Publisher Publisher { get; set; }
+        public Publisher? Publisher { get; set; }
         public int PublisherId { get; set; }
+        [Required]
+        [DisplayName("Cover Image")]
+        public string CoverImg { get; set; }
 
     }
 }

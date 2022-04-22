@@ -1,0 +1,56 @@
+﻿@model GameDetails
+@using IGDB.Utils
+@{
+	ViewData["Title"] = "Delete " + @Model.Game.Title;
+}
+
+<div class="container mt-5">
+	<h1>Delete Game</h1>
+	<form method="post">
+		<div asp-validation-summary="All"></div>
+		<div class="border border-light border-5 p-5">
+			<input hidden asp-for="Game.GameId" />
+			<div class="mb-3">
+				<label asp-for="Game.Title"></label>
+				<input asp-for="Game.Title" class="form-control" disabled />
+				<span asp-validation-for="Game.Title" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Game.CoverImg"></label>
+				<input asp-for="Game.CoverImg" class="form-control" disabled />
+				<span asp-validation-for="Game.CoverImg" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Game.DeveloperId"></label>
+				<select asp-for="Game.DeveloperId" class="form-control" asp-items='@new SelectList(Model.Developers, "DeveloperId", "Name")' disabled>
+					<option disabled selected>Select Developer</option>
+				</select>
+				<span asp-validation-for="Game.DeveloperId" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Game.Publisher"></label>
+				<select asp-for="Game.PublisherId" class="form-control" asp-items='@new SelectList(Model.Publishers, "PublisherId", "Name")' disabled>
+					<option disabled selected>Select Publisher</option>
+				</select>
+				<span asp-validation-for="Game.PublisherId" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
+				<label asp-for="Game.ReleaseDate"></label>
+				<input asp-for="Game.ReleaseDate" class="form-control" disabled />
+			</div>
+			<div class="mb-3">
+				<label asp-for="Game.Description"></label>
+				<textarea asp-for="Game.Description" class="form-control" disabled></textarea>
+				<span asp-validation-for="Game.Description" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-danger">Delete</button>
+		</div>
+
+	</form>
+</div>
+
+@section Scripts {
+    @{
+	<partial name="_ValidationScriptsPartial" />
+}
+}

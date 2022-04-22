@@ -79,6 +79,9 @@ namespace IGDB.Controllers
         {
             var obj = this._db.Publishers.Find(id);
             if (obj == null) return NotFound();
+            var games = this._db.Games.Where(game => game.PublisherId == id).ToList();
+            obj.Games = games;
+
             return View(obj);
         }
     }
