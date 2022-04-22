@@ -5,7 +5,7 @@
 }
 
 <div class="container mt-5">
-<h1>Create Publisher</h1>
+<h1>Add Developer</h1>
 	<form method="post">
 		<div class="border border-light border-5 p-5">
 			<div class="mb-3">
@@ -39,7 +39,7 @@
 			</div>
 			<div class="mb-3">
 				<label asp-for="Summary"></label>
-				<textarea asp-for="Summary" class="form-control"></textarea>
+				<textarea asp-for="Summary" class="form-control" style="height:300px"></textarea>
 				<span asp-validation-for="Summary" class="text-danger"></span>
 			</div>
 			<button type="submit" class="btn btn-success">Submit</button>
