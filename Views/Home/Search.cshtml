@@ -2,12 +2,12 @@
 @{
 	ViewData["Title"] = "Searh";
 }
-<h1>Search Results</h1>
+<h1 class="mt-5 mb-3">Search Results</h1>
 
 @if (Model.Games.Count > 0) 
 {
 <h2>
-	<a asp-controller="Games" class="btn btn-primary">Games</a>
+	<a asp-controller="Games" asp-action="Index" class="btn btn-primary">Games</a>
 </h2>
 <div class="row mb-3">
 	@foreach (var item in Model.Games)
@@ -45,7 +45,7 @@
 {
 
 	<h2>
-		<a asp-controller="Developer" class="btn btn-primary" >Developers</a>
+		<a asp-controller="Developer" asp-action="Index" class="btn btn-primary" >Developers</a>
 	</h2>
 
 	<div class="mb-3">
@@ -80,7 +80,7 @@
 @if (Model.Publishers.Count > 0)
 {
 <h2>
-	<a asp-controller="Publisher" class="btn btn-primary">Publishers</a>
+	<a asp-controller="Publisher" asp-action="Index" class="btn btn-primary">Publishers</a>
 </h2>
 
 <div class="mb-3">
