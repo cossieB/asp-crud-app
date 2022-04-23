@@ -21,7 +21,7 @@
 				<span asp-validation-for="Game.CoverImg" class="text-danger"></span>
 			</div>
 			<div class="mb-3">
-				<label asp-for="Game.DeveloperId"></label>
+				<label asp-for="Game.Developer"></label>
 				<select asp-for="Game.DeveloperId" class="form-control" asp-items='@new SelectList(Model.Developers, "DeveloperId", "Name")'>
 					<option disabled selected>Select Developer</option>
 				</select>

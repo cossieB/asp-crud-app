@@ -1,8 +1,104 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model HomeModel
+@{
+	ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center d-flex flex-column justify-content-center" style="height:25vh" >
-    <p class="fs-3">Welcome to</p>
-    <span class="fs-1" style="font-family: 'Press Start 2p', cursive">The <span class="text-info">Internet</span><span class="text-success"> Games</span> <span class="text-warning">Database</span></span>
+<div class="text-center d-flex flex-column justify-content-center" style="height:25vh">
+	<p class="fs-3">Welcome to</p>
+	<span class="fs-1" style="font-family: 'Press Start 2p', cursive">The <span class="text-info">Internet</span><span class="text-success"> Games</span> <span class="text-warning">Database</span></span>
+</div>
+<h2>
+	<a asp-controller="Games" class="btn btn-primary">Games</a>
+</h2>
+<div class="row mb-3">
+	@foreach (var item in Model.Games)
+	{
+
+		<div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
+			<div class="card bg-light h-100">
+				<img class="card-img-top h-100" src="@item.CoverImg" />
+				<div class="card-body">
+					<p class="card-title">@item.Title</p>
+					<div class="w-100 btn-group">
+						<a asp-action="Details" asp-route-Id="@item.GameId" class="btn btn-info w-25 d-flex align-items-center justify-content-center" title="Details">
+							<i class="bi bi-info-square"></i>
+							
+						</a>
+						<a asp-action="Edit" asp-route-Id="@item.GameId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center" title="Edit">
+							<i class="bi bi-pencil-square"></i>
+							
+						</a>
+						<a asp-action="Delete" asp-route-Id="@item.GameId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center" title="Delete">
+							<i class="bi bi-trash3"></i>
+							
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	}
+</div>
+<h2>
+	<a asp-controller="Developer" class="btn btn-primary" >Developers</a>
+</h2>
+
+<div class="mb-3">
+@foreach (var item in Model.Developers)
+{
+	<div class="bg-light p-3">
+		<div class="row justify-content-center" style="height:50px">
+			<div class="col-8 h-100">
+				<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
+			</div>
+			<div class="col-4 btn-group">
+				<a asp-action="Details" asp-route-Id="@item.DeveloperId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-info-square"></i>
+					<span class="d-none d-lg-block"> &nbsp;Details</span>
+				</a>
+				<a asp-action="Edit" asp-route-Id="@item.DeveloperId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-pencil-square"></i>
+					<span class="d-none d-lg-block">&nbsp;Edit</span>
+				</a>
+				<a asp-action="Delete" asp-route-Id="@item.DeveloperId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-trash3"></i>
+					<span class="d-none d-lg-block">&nbsp;Delete</span>
+				</a>
+
+			</div>
+		</div>
+	</div>
+}
+</div>
+<h2>
+	<a asp-controller="Publisher" class="btn btn-primary">Publishers</a>
+</h2>
+
+<div class="mb-3">
+@foreach (var item in Model.Publishers)
+{
+	<div class="bg-light p-3">
+		<div class="row justify-content-center" style="height:50px">
+			<div class="col-8 h-100">
+				<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
+			</div>
+			<div class="col-4 btn-group">
+				<a asp-action="Details" asp-route-Id="@item.PublisherId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-info-square"></i>
+					<span class="d-none d-lg-block"> &nbsp;Details</span>
+				</a>
+				<a asp-action="Edit" asp-route-Id="@item.PublisherId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-pencil-square"></i>
+					<span class="d-none d-lg-block">&nbsp;Edit</span>
+				</a>
+				<a asp-action="Delete" asp-route-Id="@item.PublisherId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
+					<i class="bi bi-trash3"></i>
+					<span class="d-none d-lg-block">&nbsp;Delete</span>
+				</a>
+
+			</div>
+		</div>
+	</div>
+}
 </div>
