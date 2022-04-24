@@ -20,15 +20,15 @@
 				<div class="card-body">
 					<p class="card-title">@item.Title</p>
 					<div class="w-100 btn-group">
-						<a asp-action="Details" asp-route-Id="@item.GameId" class="btn btn-info w-25 d-flex align-items-center justify-content-center" title="Details">
+						<a asp-controller="Games" asp-action="Details" asp-route-Id="@item.GameId" class="btn btn-info w-25 d-flex align-items-center justify-content-center" title="Details">
 							<i class="bi bi-info-square"></i>
 							
 						</a>
-						<a asp-action="Edit" asp-route-Id="@item.GameId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center" title="Edit">
+						<a asp-controller="Games" asp-action="Edit" asp-route-Id="@item.GameId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center" title="Edit">
 							<i class="bi bi-pencil-square"></i>
 							
 						</a>
-						<a asp-action="Delete" asp-route-Id="@item.GameId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center" title="Delete">
+						<a asp-controller="Games" asp-action="Delete" asp-route-Id="@item.GameId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center" title="Delete">
 							<i class="bi bi-trash3"></i>
 							
 						</a>
@@ -53,15 +53,15 @@
 				<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
 			</div>
 			<div class="col-4 btn-group">
-				<a asp-action="Details" asp-route-Id="@item.DeveloperId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Developer" asp-action="Details" asp-route-Id="@item.DeveloperId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-info-square"></i>
 					<span class="d-none d-lg-block"> &nbsp;Details</span>
 				</a>
-				<a asp-action="Edit" asp-route-Id="@item.DeveloperId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Developer" asp-action="Edit" asp-route-Id="@item.DeveloperId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-pencil-square"></i>
 					<span class="d-none d-lg-block">&nbsp;Edit</span>
 				</a>
-				<a asp-action="Delete" asp-route-Id="@item.DeveloperId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Developer" asp-action="Delete" asp-route-Id="@item.DeveloperId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-trash3"></i>
 					<span class="d-none d-lg-block">&nbsp;Delete</span>
 				</a>
@@ -84,15 +84,15 @@
 				<img src="@item.Logo" alt="@item.Name logo" class="img-fluid h-100" />
 			</div>
 			<div class="col-4 btn-group">
-				<a asp-action="Details" asp-route-Id="@item.PublisherId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Publisher" asp-action="Details" asp-route-Id="@item.PublisherId" class="btn btn-info w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-info-square"></i>
 					<span class="d-none d-lg-block"> &nbsp;Details</span>
 				</a>
-				<a asp-action="Edit" asp-route-Id="@item.PublisherId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Publisher" asp-action="Edit" asp-route-Id="@item.PublisherId" class="btn btn-warning w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-pencil-square"></i>
 					<span class="d-none d-lg-block">&nbsp;Edit</span>
 				</a>
-				<a asp-action="Delete" asp-route-Id="@item.PublisherId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
+				<a asp-controller="Publisher" asp-action="Delete" asp-route-Id="@item.PublisherId" class="btn btn-danger w-25 d-flex align-items-center justify-content-center">
 					<i class="bi bi-trash3"></i>
 					<span class="d-none d-lg-block">&nbsp;Delete</span>
 				</a>
